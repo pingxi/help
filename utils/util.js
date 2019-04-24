@@ -1,13 +1,13 @@
 const util = {
-  API: 'http://localhost:3336/api/', 
-  webSrc: 'http://localhost:8080/dist/#/dayin_wx',
+  API: 'http://wxxcx.jdzdx.xyz:3336/api/',
+  webSrc: 'http://wxxcx.jdzdx.xyz/dist/#/dayin_wx',
 
   /**
    * 获取窗口大小
    */
   getWindowSize(that) {
     let pages = getCurrentPages(); // 当前页面
-    // let beforePage = pages[pages.length - 2]; 
+    // let beforePage = pages[pages.length - 2];
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -76,7 +76,7 @@ const util = {
       success: function (res) {
         if (typeof _success == 'function' && res.statusCode != 404 && res.statusCode != 500 && res.statusCode != 400) {
 
-         
+
           if (res.data.code != 101 && res.data.code != -1){
             if (res.data.code != 1) {
               wx.showToast({
@@ -86,12 +86,12 @@ const util = {
             }
             _success(res.data);
           }else{
-            
+
             that.login(function(res){
               that.http(method, url, data, success, fail)
             })
           }
-          
+
         } else {
           if (typeof _success != 'function') {}
           wx.showToast({
@@ -108,16 +108,16 @@ const util = {
       }
     });
   },
-  dateFormat(time, fmt) { //author: meizz 
+  dateFormat(time, fmt) { //author: meizz
     let date = new Date(parseInt(time))
     var o = {
-      "M+": date.getMonth() + 1, //月份 
-      "d+": date.getDate(), //日 
-      "h+": date.getHours(), //小时 
-      "m+": date.getMinutes(), //分 
-      "s+": date.getSeconds(), //秒 
-      "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
-      "S": date.getMilliseconds() //毫秒 
+      "M+": date.getMonth() + 1, //月份
+      "d+": date.getDate(), //日
+      "h+": date.getHours(), //小时
+      "m+": date.getMinutes(), //分
+      "s+": date.getSeconds(), //秒
+      "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+      "S": date.getMilliseconds() //毫秒
     };
     if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
     for (var k in o)
