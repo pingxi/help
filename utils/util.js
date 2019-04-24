@@ -1,7 +1,6 @@
 const util = {
   API: 'http://wxxcx.jdzdx.xyz:3336/api/',
   webSrc: 'http://wxxcx.jdzdx.xyz/dist/#/dayin_wx',
-  a
 
   /**
    * 获取窗口大小
